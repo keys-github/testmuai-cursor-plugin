@@ -224,7 +224,7 @@ Access TestMu AI's complete testing platform directly from Cursor using natural 
 - View MCP server logs in Cursor
 
 **Need Help?**
-- [GitHub Issues](https://github.com/AyushSomani001/testmuai-cursor-plugin/issues) — Report bugs or issues
+- [GitHub Issues](https://github.com/LambdaTest/testmuai-cursor-plugin/issues) — Report bugs or issues
 - [TestMu AI Support](https://www.testmuai.com/support) — Platform questions
 - [Documentation](https://www.testmuai.com/support/docs/) — Detailed guides
 
