@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "testmu-ai": {
+      "command": "npx",
+      "args": ["mcp-remote@latest", "https://mcp.lambdatest.com/mcp"]
+    }
+  }
+}

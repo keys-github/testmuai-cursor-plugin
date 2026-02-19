@@ -1,0 +1,25 @@
+{
+  "name": "testmu-ai",
+  "version": "1.0.0",
+  "description": "TestMu AI integration for Cursor. Run tests on HyperExecute, debug automation failures, perform visual regression testing with SmartUI, scan for accessibility issues, and test mobile apps—all using natural language.",
+  "author": {
+    "name": "TestMu AI",
+    "email": "keys@testmuai.com"
+  },
+  "homepage": "https://www.testmuai.com",
+  "repository": "https://github.com/LambdaTest/testmuai-cursor-plugin",
+  "keywords": [
+    "testmu-ai",
+    "testing",
+    "automation",
+    "hyperexecute",
+    "smartui",
+    "accessibility",
+    "playwright",
+    "selenium",
+    "cypress",
+    "visual-testing",
+    "real-devices"
+  ],
+  "logo": "assets/logo.svg"
+}
