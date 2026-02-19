@@ -7,13 +7,11 @@ Access TestMu AI's complete testing platform directly from Cursor using natural 
 ### Prerequisites
 
 - Node.js 18 or higher ([download](https://nodejs.org/en/download))
-- TestMu AI account ([sign up for free](https://accounts.testmuai.com/register))
+- TestMu AI account ([sign up for free](https://accounts.lambdatest.com/register))
 
 ### Installation
 
-1. **Get your TestMu AI credentials** from [Account Settings](https://accounts.testmuai.com/security)
-
-2. **Configure MCP settings in Cursor**:
+1. **Configure MCP settings in Cursor**:
    - Open Cursor Settings
    - Navigate to MCP configuration
    - Add TestMu AI credentials:
@@ -220,13 +218,6 @@ Access TestMu AI's complete testing platform directly from Cursor using natural 
 @test-debugger "My test is flaky, sometimes passes sometimes fails"
 ```
 
-## Troubleshooting
-
-**Authentication Issues**
-- Verify credentials at [Account Settings](https://accounts.testmu.ai/security)
-- Check MCP configuration in Cursor settings
-- Ensure environment variables `LT_USERNAME` and `LT_ACCESS_KEY` are set correctly
-
 **Plugin Not Responding**
 - Restart Cursor after configuration changes
 - Check Node.js version: `node --version` (need 18+)
@@ -234,15 +225,7 @@ Access TestMu AI's complete testing platform directly from Cursor using natural 
 
 **Need Help?**
 - [GitHub Issues](https://github.com/AyushSomani001/testmuai-cursor-plugin/issues) — Report bugs or issues
-- [TestMu AI Support](https://www.testmu.ai/support) — Platform questions
-- [Documentation](https://www.testmu.ai/support/docs/) — Detailed guides
+- [TestMu AI Support](https://www.testmuai.com/support) — Platform questions
+- [Documentation](https://www.testmuai.com/support/docs/) — Detailed guides
 
 ---
-
-## How to Sign Up for TestMu AI?
-
-1. **Create a free account** at [testmu.ai/register](https://accounts.testmu.ai/register)
-   - No credit card required
-   - Instant access to start testing
-
-2. **Get your credentials** from [Account Settings](https://accounts.testmu.ai/security) to configure the plugin
