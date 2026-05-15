@@ -1,231 +1,134 @@
-# TestMu AI for Cursor
+# TestMu AI Cursor Plugin for TestMu AI (Formerly LambdaTest)
 
-Access TestMu AI's complete testing platform directly from Cursor using natural language. Run tests on HyperExecute, debug automation failures, perform visual regression testing with SmartUI, scan for accessibility issues, and test mobile apps—all without leaving your IDE.
+<p align="center">
+  <a href="https://www.testmuai.com/"><img src="https://img.shields.io/badge/MADE%20BY%20TestMu%20AI-000000.svg?style=for-the-badge&labelColor=000" alt="Made by TestMu AI"></a>
+  <a href="https://github.com/LambdaTest/testmuai-cursor-plugin/releases"><img src="https://img.shields.io/github/v/release/LambdaTest/testmuai-cursor-plugin.svg?style=for-the-badge&labelColor=000000" alt="GitHub release"></a>
+  <a href="https://community.testmuai.com/"><img src="https://img.shields.io/badge/Join%20the%20community-blueviolet.svg?style=for-the-badge&labelColor=000000" alt="Community"></a>
+</p>
 
 ## Getting Started
 
+[TestMu AI](https://www.testmuai.com/) (Formerly LambdaTest) is the world's first full-stack AI Agentic Quality Engineering platform that empowers teams to test intelligently, smarter, and ship faster. Built for scale, it offers a full-stack testing cloud with 10K+ real devices and 3,000+ browsers. With AI-native test management, MCP servers, and agent-based automation, TestMu AI supports Selenium, Appium, Playwright, and all major frameworks. 
+
+With TestMu AI (Formerly LambdaTest), you can access the complete TestMu AI testing platform directly from Cursor using natural language — running tests on HyperExecute, debugging automation failures, performing visual regression with SmartUI, scanning for accessibility issues, and testing mobile apps, all without leaving your IDE.
+
+- [Sign up on TestMu AI](https://www.testmuai.com/register/) (Formerly LambdaTest).
+- Follow the [TestMu AI Documentation](https://www.testmuai.com/support/docs/) for the full setup walkthrough.
+
 ### Prerequisites
 
-- Node.js 18 or higher ([download](https://nodejs.org/en/download))
-- TestMu AI account ([sign up for free](https://accounts.lambdatest.com/register))
+- Node.js 18 or higher
+- Cursor IDE
+- A TestMu AI (Formerly LambdaTest) account with your username and access key
 
-### Installation
+### Setup
 
-1. **Configure MCP settings in Cursor**:
-   - Open Cursor Settings
-   - Navigate to MCP configuration
-   - Add TestMu AI credentials:
+Clone and install dependencies:
 
-   ```json
-   {
-     "mcpServers": {
-       "testmu-ai": {
-         "command": "npx",
-         "args": ["mcp-remote@latest", "https://mcp.lambdatest.com/mcp"]
-       }
-     }
-   }
-   ```
+```bash
+git clone https://github.com/LambdaTest/testmuai-cursor-plugin && cd testmuai-cursor-plugin
+```
 
-3. **Restart Cursor** and verify:
-   ```
-   "Generate a HyperExecute YAML for my Playwright tests"
-   ```
+Configure MCP settings in Cursor:
 
-## What's Included
+1. Open Cursor Settings
+2. Navigate to MCP configuration
+3. Add the following:
 
-### Skills
+```json
+{
+  "mcpServers": {
+    "testmu-ai": {
+      "command": "npx",
+      "args": ["mcp-remote@latest", "https://mcp.lambdatest.com/mcp"]
+    }
+  }
+}
+```
 
-- **run-tests-on-hyperexecute** — Generate HyperExecute YAML configs and run parallel tests
-- **debug-automation-tests** — Debug Selenium/Appium test failures with command, network, console, and WebDriver logs
-- **visual-regression-testing** — Analyze visual changes with SmartUI pixel, layout, and DOM diffs
-- **scan-and-fix-accessibility** — Scan webpages for WCAG 2.1 violations and get code fixes
-- **upload-and-test-mobile-app** — Upload APK/IPA files to TestMu AI for mobile testing
+Set your credentials as environment variables.
 
-### Agents
+**macOS / Linux:**
 
-- **hyperexecute-expert** — AI-powered HyperExecute documentation Q&A
-- **test-debugger** — Systematic test failure diagnosis across multiple log sources
+```bash
+export LT_USERNAME="YOUR_USERNAME"
+export LT_ACCESS_KEY="YOUR_ACCESS_KEY"
+```
 
-### MCP Tools (29 Available)
+**Windows:**
 
-**HyperExecute**
-- `generateHyperExecuteYAML` — Generate HyperExecute YAML config for 35+ frameworks
-- `answerHyperExecuteQuery` — AI-powered documentation Q&A (RAG-based, no API key needed)
-- `getHyperExecuteJobInfo` — Fetch job details, status, and results
-- `getHyperExecuteJobSessions` — Fetch session-level details for a job
+```bash
+set LT_USERNAME="YOUR_USERNAME"
+set LT_ACCESS_KEY="YOUR_ACCESS_KEY"
+```
 
-**Automation (Web & Mobile)**
-- `getAutomationTestDetails` — Fetch test metadata (browser, OS, status, timing)
-- `getAutomationTestCommandLogs` — Fetch Selenium/Appium command execution logs
-- `getAutomationTestNetworkLogs` — Fetch HAR network traffic logs
-- `getAutomationTestBrowserConsoleLogs` — Fetch browser console output
-- `getAutomationTestSeleniumLogs` — Fetch raw WebDriver/Appium logs
+### Run tests
 
-**SmartUI (Visual Testing)**
-- `getSmartUIScreenshotInfo` — Get screenshot metadata and comparison details
-- `downloadSmartUIDomFiles` — Download DOM structures for comparison
-- `getSmartUIResources` — Fetch comparison resources (baseline vs current)
-- `summarizeSmartUIPixelDiff` — Analyze pixel-level visual changes
-- `summarizeSmartUILayoutDiff` — Analyze layout and structural changes
-- `summarizeSmartUIDomDiff` — Analyze DOM/code-level changes
-- `analyzeSmartUIHumanDiff` — Human-readable visual change descriptions
-- `analyzeSmartUIRun` — Comprehensive test run analysis
+Restart Cursor after configuration, then use natural language prompts such as:
 
-**Accessibility**
-- `getAccessibilityReport` — WCAG 2.1 compliance scanning with axe-core
-- `analyzeAppViaTunnel` — Scan localhost apps via TestMu AI tunnel
-- `buildLocalAppForAnalysis` — Setup instructions for local accessibility testing
-
-**Mobile App**
-- `upload_app` — Upload APK/IPA files for mobile testing
-
-**Phone Caller**
-- `triggerSuiteRun` — Initiate phone test runs
-- `listSuites` — List available test suites
-- `getSuiteOverview` — Get suite statistics and schedules
-
-## Use Cases
-
-### 1. Run Tests on HyperExecute
-
-**What**: Generate HyperExecute YAML configs and execute parallel tests across browsers and platforms.
-
-**Skill**: `run-tests-on-hyperexecute`
-
-**Tools**: `generateHyperExecuteYAML`, `getHyperExecuteJobInfo`, `getHyperExecuteJobSessions`
-
-**Examples**:
 ```
 "Generate a HyperExecute YAML for my Playwright tests in JavaScript"
-"Create HyperExecute config for Pytest with 10 parallel sessions"
-"Get status of HyperExecute job abc123"
-"Show session details for my HyperExecute job"
-```
-
-**Supported Frameworks** (35+):
-| Language | Frameworks |
-|----------|-----------|
-| JavaScript | Playwright, Cypress, Jest, Mocha, WebDriverIO, Selenium, Puppeteer, Taiko, TestCafe |
-| Python | Pytest, Behave, Robot Framework, Selenium, Appium |
-| Java | TestNG, JUnit, Cucumber, Selenium, Appium, REST-Assured |
-| Ruby | RSpec, Capybara, Cucumber, Minitest |
-| C# | NUnit, xUnit, MSTest, SpecFlow |
-| PHP | PHPUnit, Codeception, Behat |
-| Go | Testing, Testify, Ginkgo |
-
----
-
-### 2. Debug Automation Test Failures
-
-**What**: Diagnose test failures by fetching command, network, console, and WebDriver logs.
-
-**Skill**: `debug-automation-tests`
-
-**Tools**: `getAutomationTestDetails`, `getAutomationTestCommandLogs`, `getAutomationTestNetworkLogs`, `getAutomationTestBrowserConsoleLogs`, `getAutomationTestSeleniumLogs`
-
-**Examples**:
-```
-"Get details of automation test session abc123"
-"Get command logs for session xyz789"
-"Show me network logs for my failed test"
-"Get browser console logs for session abc123"
-```
-
----
-
-### 3. Visual Regression Testing with SmartUI
-
-**What**: Detect visual changes between builds using pixel, layout, and DOM diff analysis.
-
-**Skill**: `visual-regression-testing`
-
-**Tools**: `analyzeSmartUIRun`, `getSmartUIScreenshotInfo`, `summarizeSmartUIPixelDiff`, `summarizeSmartUILayoutDiff`, `summarizeSmartUIDomDiff`, `analyzeSmartUIHumanDiff`
-
-**Examples**:
-```
-"Analyze SmartUI run for build abc123"
-"Summarize pixel differences for screenshot xyz789"
-"Explain what changed visually in this screenshot"
-"Download DOM files for comparison"
-```
-
----
-
-### 4. Accessibility Scanning
-
-**What**: Identify WCAG 2.1 violations on your website and get specific code fixes.
-
-**Skill**: `scan-and-fix-accessibility`
-
-**Tools**: `getAccessibilityReport`, `analyzeAppViaTunnel`, `buildLocalAppForAnalysis`
-
-**Examples**:
-```
 "Run accessibility scan for 'https://mysite.com'"
-"Scan my localhost app on port 3000 for accessibility issues"
-"Help me set up accessibility testing locally"
-"Re-scan to verify accessibility fixes"
-```
-
----
-
-### 5. Upload and Test Mobile Apps
-
-**What**: Upload APK/IPA files to TestMu AI for mobile automation testing.
-
-**Skill**: `upload-and-test-mobile-app`
-
-**Tools**: `upload_app`
-
-**Examples**:
-```
+"Debug automation test session abc123"
+"Analyze SmartUI run for build abc123"
 "Upload /builds/app-debug.apk to TestMu AI"
-"Upload my iOS app from https://ci.example.com/artifacts/latest.ipa"
 ```
 
----
+View results on your TestMu AI dashboard.
 
-### 6. HyperExecute Documentation Q&A
+### Local testing with TestMu AI Tunnel
 
-**What**: Get answers about HyperExecute features, configuration, and troubleshooting.
+To test locally hosted apps, set up the TestMu AI tunnel. OS-specific guides:
 
-**Agent**: `hyperexecute-expert` (invoke with `@hyperexecute-expert`)
+- [Local Testing on Windows](https://www.testmuai.com/support/docs/local-testing-for-windows/)
+- [Local Testing on macOS](https://www.testmuai.com/support/docs/local-testing-for-macos/)
+- [Local Testing on Linux](https://www.testmuai.com/support/docs/local-testing-for-linux/)
 
-**Tools**: `answerHyperExecuteQuery`
+Add the following to your capabilities:
 
-**Examples**:
-```
-@hyperexecute-expert "How do I configure caching in HyperExecute?"
-@hyperexecute-expert "How to integrate HyperExecute with GitHub Actions?"
-@hyperexecute-expert "My job is timing out, how do I fix it?"
-```
-
----
-
-### 7. Systematic Test Debugging
-
-**What**: Deep-dive test failure diagnosis across multiple log sources.
-
-**Agent**: `test-debugger` (invoke with `@test-debugger`)
-
-**Tools**: `getAutomationTestDetails`, `getAutomationTestCommandLogs`, `getAutomationTestNetworkLogs`, `getAutomationTestBrowserConsoleLogs`, `getAutomationTestSeleniumLogs`, `getHyperExecuteJobInfo`
-
-**Examples**:
-```
-@test-debugger "Session abc123 failed with element not found"
-@test-debugger "Help me debug HyperExecute job xyz789"
-@test-debugger "My test is flaky, sometimes passes sometimes fails"
+```js
+tunnel: true,
 ```
 
-**Plugin Not Responding**
-- Restart Cursor after configuration changes
-- Check Node.js version: `node --version` (need 18+)
-- View MCP server logs in Cursor
+## Contributions
 
-**Need Help?**
-- [GitHub Issues](https://github.com/LambdaTest/testmuai-cursor-plugin/issues) — Report bugs or issues
-- [TestMu AI Support](https://www.testmuai.com/support) — Platform questions
-- [Documentation](https://www.testmuai.com/support/docs/) — Detailed guides
+Contributions are welcome. Open an issue to discuss your idea before submitting a pull request. When reporting bugs, include your Node.js version, OS, and npm version.
 
----
+## TestMu AI (Formerly LambdaTest) Community
+
+Connect with testers and developers in the [TestMu AI Community](https://community.testmuai.com/). Ask questions, share what you are building, and discuss best practices in test automation and DevOps.
+  
+## TestMu AI (Formerly LambdaTest) Certifications
+
+Earn free [TestMu AI Certifications](https://www.testmuai.com/certifications/) for testers, developers, and QA engineers. Validate your skills in Selenium, Cypress, Playwright, Appium, Espresso and more. Industry-recognized, shareable on LinkedIn, and built by practitioners, not marketers.
+
+## Learning Resources by TestMu AI (Formerly LambdaTest)
+
+Learn modern testing through tutorials, guides, videos, and weekly updates:
+
+* [TestMu AI Blog](https://www.testmuai.com/blog/)
+* [TestMu AI Learning Hub](https://www.testmuai.com/learning-hub/)
+* [TestMu AI on YouTube](https://www.youtube.com/@TestMuAI)
+* [TestMu AI Newsletter](https://www.testmuai.com/newsletter/)
+  
+## LambdaTest is Now TestMu AI
+
+On **January 12, 2026**, [LambdaTest evolved to TestMu AI](https://www.testmuai.com/lambdatest-is-now-testmuai/), the world's first fully autonomous **Agentic AI Quality Engineering Platform**.
+
+Same team. Same infrastructure. Same customer accounts. All existing LambdaTest logins, scripts, capabilities, and integrations continue to work without change.
+
+Find the new home for [LambdaTest](https://www.testmuai.com).
+
+### How LambdaTest Evolved into TestMu AI
+
+In 2017, we launched LambdaTest with a simple mission: make testing fast, reliable, and accessible. As LambdaTest grew, we expanded into Test Intelligence, Visual Regression Testing, Accessibility Testing, API Testing, and Performance Testing, covering the full depth of the testing lifecycle.
+
+As software development entered the AI era, testing had to evolve, too. We rebuilt the architecture to be AI-native from the ground up, with autonomous agents that **plan, author, execute, analyze, and optimize tests** while keeping humans in the loop. The platform integrates with your repos, CI, IDEs, and terminals, continuously learning from every code change and development signal.
+
+That evolution earned a new name: **TestMu AI**, built for an AI-first future of quality engineering. TestMu is not a new name for us. It is the name of our annual community conference, which has brought together 100,000+ quality engineers to discuss how AI would reshape testing, long before that became an industry norm. 
+
+What started as a high-performance cloud testing platform has transformed into an AI-native, multi-agent system powering a connected, end-to-end quality layer. That evolution defined a new identity: LambdaTest evolved into TestMu AI, built for an AI-first future of quality engineering.
+
+## Support
+
+Got a question? Email [support@testmuai.com](mailto:support@testmuai.com) or chat with us 24x7 from our chat portal.
